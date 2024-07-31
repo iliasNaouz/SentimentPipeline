@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:500&display=swap');
+
+$primary-color: #F2F7FB;
+$key-corner: #E9F2FB;
+$shadow-color: #D9E3EC;
+$background-color: #f0f0f0;
+$font-color: #333;
+$key-background: #a0abb1;
+$key-background-active: #c5c5c5;
+$key-border-radius: 0.5px;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  background: $primary-color;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height:100vh;
+  flex-direction: column;
+  
+  &__content {
+    width: 60%;
+  }
+}
+
+.textbox {
+  width: 100%;
+  resize: none;
+  background: linear-gradient(145deg, $primary-color, $key-corner);
+  box-shadow:  inset 8px 8px 15px $shadow-color;
+  border-radius: 12px;
+  border: none;
+  overflow: auto;
+  padding: 20px;
+  outline: none;
+  margin: 20px 0;
+}
+
+.keyboard {
+  padding: 25px;
+  background: linear-gradient(145deg, $primary-color, $key-corner);
+  box-shadow:  8px 8px 15px $shadow-color;
+  border-radius: 12px;
+  min-width: 750px;
+  max-width: 1000px;
+  
+  &__keys {
+    display: flex;
+    justify-content: center;
+  }
+  
+}
+.key__button {
+    background-color: #ffcccc;
+    color: #ff0000;
+    font-weight: bold;
+    border: 0.5px solid #d9d9d9;
+    border-radius: $key-border-radius;
+    padding: 15px;
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+
+   
+}
+.key { 
+  display: flex;
+ 
+  justify-content: center;
+  align-items: center;
+  padding:10px;
+  margin: 10px;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  background: linear-gradient(145deg, $primary-color, $key-corner);
+  box-shadow:  5px 5px 15px $shadow-color;
+  
+  &__letter {
+    background: -webkit-linear-gradient(245deg, #d31a9c, #3CDEE7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  &__down {
+    color: linear-gradient(45deg, #1E71F5, #3CDEE7);;
+    background: linear-gradient(145deg, $key-corner,  $primary-color);
+    box-shadow:  inset 5px 5px 5px $shadow-color;
+  }
+  
+  &__space {
+    width: 60%;
+  }
+}
+.stat__container {
+    margin-top: 20px;
+    width: 60%;
+    padding: 20px;
+    background: linear-gradient(145deg, $primary-color, $key-corner);
+    box-shadow: 8px 8px 15px $shadow-color;
+    border-radius: 12px;
+    text-align: center;
+  }
+  
+  .stat {
+    font-size: 24px;
+    font-weight: bold;
+    color: $font-color;
+  
+    &__value {
+      display: block;
+      margin-top: 10px;
+      font-size: 20px;
+      color: #d31a9c;
+    }
+  
+    &__circle {
+      margin-top: 20px;
+      position: relative;
+      display: inline-block;
+  
+      .progress-circle {
+        transform: rotate(-90deg);
+      }
+  
+      .progress-circle__bg {
+        fill: none;
+        stroke: #e6e6e6;
+        stroke-width: 10;
+      }
+  
+      .progress-circle__fg {
+        fill: none;
+        stroke: #d31a9c;
+        stroke-width: 10;
+        stroke-dasharray: 282.743; /* 2 * PI * 45 (radius) */
+        stroke-dashoffset: 200; /* Percentage (75% of 282.743) */
+        transition: stroke-dashoffset 0.5s ease;
+      }
+  
+      .stat__percentage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+        color: $font-color;
+      }
+    }
+  }

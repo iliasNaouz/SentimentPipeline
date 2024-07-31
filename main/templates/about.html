@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    {% assets "scss_all" %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="textbox__container">
+          <textarea autofocus name="textbox" cols="128" rows="10"              class="textbox" placeholder="Start typing feel free about expressing your feelings..."></textarea>
+        </div>
+        <div class="container__content">
+          <div class="keyboard">
+          <div class="keyboard__row">
+            <div class="keyboard__keys">
+              <span class="key"><p class="key__letter">Q</p></span>
+              <span class="key"><p class="key__letter">W</p></span>
+              <span class="key"><p class="key__letter">E</p></span>
+              <span class="key"><p class="key__letter">R</p></span>
+              <span class="key"><p class="key__letter">T</p></span>
+              <span class="key"><p class="key__letter">Y</p></span>
+              <span class="key"><p class="key__letter">U</p></span>
+              <span class="key"><p class="key__letter">I</p></span>
+              <span class="key"><p class="key__letter">O</p></span>
+              <span class="key"><p class="key__letter">P</p></span>
+            </div>
+          </div>
+          <div class="keyboard__row">
+            <div class="keyboard__keys">
+              <span class="key"><p class="key__letter">A</p></span>
+              <span class="key"><p class="key__letter">S</p></span>
+              <span class="key"><p class="key__letter">D</p></span>
+              <span class="key"><p class="key__letter">F</p></span>
+              <span class="key"><p class="key__letter">G</p></span>
+              <span class="key"><p class="key__letter">H</p></span>
+              <span class="key"><p class="key__letter">J</p></span>
+              <span class="key"><p class="key__letter">K</p></span>
+              <span class="key"><p class="key__letter">L</p></span>
+            </div>
+          </div>
+          <div class="keyboard__row">
+            <div class="keyboard__keys">
+               <span class="key"><p class="key__letter">Z</p></span>
+              <span class="key"><p class="key__letter">X</p></span>
+              <span class="key"><p class="key__letter">C</p></span>
+              <span class="key"><p class="key__letter">V</p></span>
+              <span class="key"><p class="key__letter">B</p></span>
+              <span class="key"><p class="key__letter">N</p></span>
+              <span class="key"><p class="key__letter">M</p></span>
+            </div>
+          </div>
+        <div class="keyboard__row">
+          <div class="keyboard__keys">
+            <span class="key key__space"><p class="key__letter">Space</p></span>
+            <span class="key key__button"><p class="key__letter">Analyse</p></span>
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="stat__container">
+            <div class="stat">
+                <p>Sentiments Score</p>
+                
+            </div>
+            <div class="stat stat__circle">
+                <svg class="progress-circle" width="100" height="100">
+                    <circle class="progress-circle__bg" cx="50" cy="50" r="45"></circle>
+                    <circle class="progress-circle__fg" cx="50" cy="50" r="45"></circle>
+                </svg>
+                <div class="stat__percentage">0%</div>
+            </div>
+        </div>
+      </div>
+      <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

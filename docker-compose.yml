@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  main:
+    build:
+      context: ./main
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - clean_text
+      - embedding_service
+      - model_service
+    environment:
+      - MONGO_URI=mongodb+srv://pronaouzilias:h97Hu1bu7ogH2jb3@audensiel.kc7tr5z.mongodb.net/
+
+  clean_text:
+    build:
+      context: ./clean_text
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002" 
+
+  embedding_service:
+    build:
+      context: ./embedding_service
+      dockerfile: Dockerfile
+    ports:
+      - "5003:5003"
+
+  model_service:
+    build:
+      context: ./model_service
+      dockerfile: Dockerfile
+    ports:
+      - "5004:5004"

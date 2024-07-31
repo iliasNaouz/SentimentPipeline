@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif; }
+
+body {
+  background: #F2F7FB; }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column; }
+  .container__content {
+    width: 60%; }
+
+.textbox {
+  width: 100%;
+  resize: none;
+  background: linear-gradient(145deg, #F2F7FB, #E9F2FB);
+  box-shadow: inset 8px 8px 15px #D9E3EC;
+  border-radius: 12px;
+  border: none;
+  overflow: auto;
+  padding: 20px;
+  outline: none;
+  margin: 20px 0; }
+
+.keyboard {
+  padding: 25px;
+  background: linear-gradient(145deg, #F2F7FB, #E9F2FB);
+  box-shadow: 8px 8px 15px #D9E3EC;
+  border-radius: 12px;
+  min-width: 750px;
+  max-width: 1000px; }
+  .keyboard__keys {
+    display: flex;
+    justify-content: center; }
+
+.key__button {
+  background-color: #ffcccc;
+  color: #ff0000;
+  font-weight: bold;
+  border: 0.5px solid #d9d9d9;
+  border-radius: 0.5px;
+  padding: 15px;
+  margin: 5px;
+  text-align: center;
+  cursor: pointer; }
+
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #F2F7FB, #E9F2FB);
+  box-shadow: 5px 5px 15px #D9E3EC; }
+  .key__letter {
+    background: -webkit-linear-gradient(245deg, #d31a9c, #3CDEE7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
+  .key__down {
+    color: linear-gradient(45deg, #1E71F5, #3CDEE7);
+    background: linear-gradient(145deg, #E9F2FB, #F2F7FB);
+    box-shadow: inset 5px 5px 5px #D9E3EC; }
+  .key__space {
+    width: 60%; }
+
+.stat__container {
+  margin-top: 20px;
+  width: 60%;
+  padding: 20px;
+  background: linear-gradient(145deg, #F2F7FB, #E9F2FB);
+  box-shadow: 8px 8px 15px #D9E3EC;
+  border-radius: 12px;
+  text-align: center; }
+
+.stat {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; }
+  .stat__value {
+    display: block;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #d31a9c; }
+  .stat__circle {
+    margin-top: 20px;
+    position: relative;
+    display: inline-block; }
+    .stat__circle .progress-circle {
+      transform: rotate(-90deg); }
+    .stat__circle .progress-circle__bg {
+      fill: none;
+      stroke: #e6e6e6;
+      stroke-width: 10; }
+    .stat__circle .progress-circle__fg {
+      fill: none;
+      stroke: #d31a9c;
+      stroke-width: 10;
+      stroke-dasharray: 282.743;
+      /* 2 * PI * 45 (radius) */
+      stroke-dashoffset: 200;
+      /* Percentage (75% of 282.743) */
+      transition: stroke-dashoffset 0.5s ease; }
+    .stat__circle .stat__percentage {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      color: #333; }

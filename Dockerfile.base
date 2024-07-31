@@ -1,0 +1,23 @@
+# Use the official Python slim image as a base
+FROM python:3.11.5-slim
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy the common requirements file
+COPY requirements.txt .
+
+# Update and install dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libhdf5-dev \
+    libhdf5-serial-dev \
+    libhdf5-103 \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install the required Python packages
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose a default port (optional, can be overridden by child images)
+EXPOSE 5000

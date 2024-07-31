@@ -1,0 +1,14 @@
+# Use the common base image
+FROM mybaseimage:latest
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy application-specific code
+COPY . .
+
+# Expose the necessary port
+EXPOSE 5003
+
+# Run the application
+CMD ["python", "embedding.py"]
