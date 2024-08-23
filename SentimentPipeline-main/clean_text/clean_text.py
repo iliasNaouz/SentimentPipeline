@@ -1,16 +1,17 @@
 import re
 import string
+import socket
 
 def clean_text(text):
     text = str(text)
     text = text.lower()
-    text = re.sub('\[.*?\]', '', text)
-    text = re.sub('\\W', ' ', text)
-    text = re.sub('https?://\S+|www\.S+', '', text)
-    text = re.sub('<.*?>+', '', text)
-    text = re.sub('[%s]' % re.escape(string.punctuation), '', text)
-    text = re.sub('\n', '', text)
-    text = re.sub('\w*\d\w*', '', text)
+    text = re.sub(r'\[.*?\]', '', text)
+    text = re.sub(r'\W', ' ', text)
+    text = re.sub(r'https?://\S+|www\.\S+', '', text)
+    text = re.sub(r'<.*?>+', '', text)
+    text = re.sub(r'[%s]' % re.escape(string.punctuation), '', text)
+    text = re.sub(r'\n', '', text)
+    text = re.sub(r'\w*\d\w*', '', text)
     return text
 
 def handle_client(client_socket):
@@ -23,11 +24,10 @@ def handle_client(client_socket):
     client_socket.close()
 
 def main():
-    import socket
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind(('0.0.0.0', 5002))
     server_socket.listen(5)
-    print("Utils service listening on port 5002")
+    print("Clean-text service listening on port 5002")
     
     while True:
         client_socket, _ = server_socket.accept()

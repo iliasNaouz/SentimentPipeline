@@ -2,10 +2,12 @@ import socket
 import torch
 from transformers import ElectraTokenizer, ElectraModel
 import logging
+import os
 
 # Setup logging
 logging.basicConfig(level=logging.DEBUG)
 
+# Load the tokenizer and model
 tokenizer = ElectraTokenizer.from_pretrained('dbmdz/electra-base-french-europeana-cased-generator')
 model = ElectraModel.from_pretrained('dbmdz/electra-base-french-europeana-cased-generator')
 

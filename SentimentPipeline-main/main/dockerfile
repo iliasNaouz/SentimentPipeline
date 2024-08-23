@@ -1,0 +1,24 @@
+FROM myabaseimage:latest
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy application-specific code
+COPY . .
+RUN pip install libsass
+# Create the directory if it doesn't exist
+RUN mkdir -p /usr/src/app/static/gen
+
+# Set ownership and permissions
+RUN chown -R 10001:10001 /usr/src/app/static/gen && chmod -R 755 /usr/src/app/static/gen
+RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser \
+    && chown -R appuser:appgroup /usr/src/app
+
+# Switch to the non-root user
+USER appuser
+
+# Expose the necessary port
+EXPOSE 5000
+
+# Run the application
+CMD ["python", "app.py"]

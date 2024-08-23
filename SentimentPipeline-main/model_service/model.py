@@ -2,8 +2,8 @@ import socket
 import numpy as np
 import tensorflow as tf
 import torch
-import requests
 import os
+import requests
 
 def download_model(url, local_path, auth):
     response = requests.get(url, auth=auth)

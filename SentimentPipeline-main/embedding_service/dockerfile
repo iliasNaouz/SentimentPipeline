@@ -1,5 +1,5 @@
 # Use the common base image
-FROM mybaseimage:latest
+FROM myabaseimage:latest
 
 # Set the working directory
 WORKDIR /usr/src/app
